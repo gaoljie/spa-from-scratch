@@ -1,3 +1,38 @@
+## Reach Router
+
+`yarn add @reach/router`
+
+## Create Page
+
+create src/Home.js
+
+```js
+import React from "react";
+
+function Home() {
+  return <div>home</div>;
+}
+
+export default Home;
+```
+
+create src/Detail.js
+
+```js
+import React from "react";
+
+function Detail() {
+  return <div>detail</div>;
+}
+
+export default Detail;
+```
+
+## add Link and Router
+
+in src/App.js
+
+```js
 import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
@@ -32,3 +67,4 @@ function App() {
 }
 
 export default App;
+```
