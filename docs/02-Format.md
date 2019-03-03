@@ -16,19 +16,24 @@ create tslint.json file in root directory
 
 ```json
 {
- "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"]
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "interface-name": [true, "never-prefix"]
+  }
 }
 ```
 
 create tsconfig.json
+
 ```json
 {
-  "include": [
-    "./**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
 }
 ```
 
