@@ -18,7 +18,7 @@ eslint-config-airbnb default export contains all of our ESLint rules, including 
 
 `npx install-peerdeps --dev eslint-config-airbnb`
 
-create .eslintrc.json file
+create .eslintrc.json file in root directory
 
 ```json
 {
@@ -28,6 +28,13 @@ create .eslintrc.json file
   "extends": ["airbnb", "prettier"],
   "rules": { "react/jsx-filename-extension": [0] }
 }
+```
+
+create .eslintignore file in root directory
+
+```
+node_modules/
+dist/
 ```
 
 ## Pre-commit hook

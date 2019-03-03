@@ -87,22 +87,7 @@ module.exports = {
 
 to webpack.config.js file.
 
-you can specify an html file as the template
-
-src/index.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
-```
+you can specify an html file as the template, which we will create next chapter
 
 ## install webpack-dev-server
 

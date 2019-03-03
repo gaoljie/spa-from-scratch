@@ -1,3 +1,12 @@
+## install style-components
+
+`yarn add styled-components`
+
+## add components
+
+change App.js
+
+```js
 import React from "react";
 import styled from "styled-components";
 
@@ -21,3 +30,4 @@ function App() {
 }
 
 export default App;
+```
