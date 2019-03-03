@@ -4,3 +4,4 @@
 node_modules/
 yarn.lock
 dist/
+src/__test__/__snapshots__/
