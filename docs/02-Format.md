@@ -10,7 +10,7 @@ prettier enforces a consistent style by parsing your code and re-printing it wit
 
 install TypeScript, tslint
 
-`yarn add typescript tslint tslint-react tslint-config-prettier --dev`
+`yarn add typescript tslint tslint-react tslint-config-prettier @types/react @types/react-dom @types/node --dev`
 
 create tslint.json file in root directory
 

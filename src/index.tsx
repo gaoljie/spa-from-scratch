@@ -2,6 +2,20 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import App from "./App";
 import AppState from "./store";
+import * as Sentry from "@sentry/browser";
+
+if (process.env.NODE_ENV === "production") {
+  Sentry.init({
+    /*need to be replaced as an real dsn*/
+    dsn: "https://sentry.dsn.address"
+  });
+
+  try {
+    throw new Error("Caught");
+  } catch (err) {
+    Sentry.captureException(err);
+  }
+}
 
 const appState = new AppState();
 

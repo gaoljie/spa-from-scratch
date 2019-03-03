@@ -1,6 +1,6 @@
 ## install React
 
-`yarn add react react-dom @types/react @types/react-dom`
+`yarn add react react-dom`
 
 ## entry
 
