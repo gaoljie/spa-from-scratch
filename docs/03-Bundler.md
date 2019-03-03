@@ -1,0 +1,129 @@
+## install webpack
+
+`yarn add webpack webpack-cli --dev`
+
+## install babel
+
+`yarn add @babel/core babel-loader @babel/preset-env @babel/preset-react --dev`
+
+- **babel-core:** Transforms ES6 code to ES5
+- **babel-loader:** Webpack helper to transpile code, given the the preset.
+- **babel-preset-env**: Preset which helps babel to convert ES6, ES7 and ES8 code to ES5.
+- **babel-preset-react:** Preset which Transforms JSX to JavaScript.
+
+## babel config
+
+we need to create .babelrc file in the root directory, so babel knows how to transpile our .js and .jsx code
+
+```js
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+
+remember the preset ordering is from right to left, so babel will use **react** preset first to transform the code
+
+## webpack config
+
+create webpack.config.js in the root directory, webpack will use ./src/index.js as an entry file to bundle up all files into ./dist folder, we use babel-loader to transform es6 style and jsx style code to es5 code, so browser can run the code without crashing.
+
+```js
+const path = require("path");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "[name].[hash].js"
+  },
+  module: {
+    rules: [
+      {
+        test: /.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  }
+};
+```
+
+## install html-webpack-plugin
+
+`yarn add html-webpack-plugin --dev`
+
+this webpack plugin generate an html file as an entry webpage file into `./dist` folder.
+
+```js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "[name].[hash].js"
+  },
+  module: {
+    rules: [
+      {
+        test: /.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src/index.html")
+    })
+  ]
+};
+```
+
+to webpack.config.js file.
+
+you can specify an html file as the template
+
+src/index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+## install webpack-dev-server
+
+The `webpack-dev-server` provides you with a simple web server and the ability to use live reloading.
+
+`yarn add webpack-dev-server --dev`
+
+add the following code to package.json
+
+```js
+"scripts": {
+  "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js"
+},
+```
+
+## webpack build
+
+first install rimraf, it is an alternative to the `rm -rf` shell command, it can delete the folder you want cross-platform so you don't need to run different command in Windows OS or other Unix Style OS.
+
+`yarn add rimraf —dev`
+
+add npm script in package.json
+
+`"build": "rimraf dist && webpack --mode production --config webpack.config.js"`

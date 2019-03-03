@@ -26,9 +26,13 @@ create .gitignore
 ```
 .DS_Store
 /*.log
+.idea/
+node_modules/
+yarn.lock
+dist/
 ```
 
-git push
+connect git to remote repository
 
 ```bash
 git commit -m "first commit"

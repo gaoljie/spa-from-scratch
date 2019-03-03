@@ -1,12 +1,15 @@
-## prettier
+## install prettier
+
+prettier enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
 `yarn add prettier eslint-config-prettier --dev`
 
-eslint-config-prettier disable the conflicting rules between eslint and prettier
+**eslint-config-prettier** is to disable the conflicting rules between eslint and prettier
 
 ## eslint
 
 install eslint
+
 `yarn add eslint --dev`
 
 install eslint-config-airbnb
@@ -19,7 +22,11 @@ create .eslintrc.json file
 
 ```json
 {
-  "extends": ["airbnb", "prettier"]
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "rules": { "react/jsx-filename-extension": [0] }
 }
 ```
 
