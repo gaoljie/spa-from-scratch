@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
-import Home from "./Home";
-import Detail from "./Detail";
+import Home from "./page/Home";
+import Detail from "./page/Detail";
+import Store from "./store";
+
+const store = new Store();
 
 const Wrapper = styled.section`
   padding: 5px;
@@ -24,7 +27,7 @@ function App() {
       </nav>
 
       <Router>
-        <Home path="/" />
+        <Home path="/" store={store} />
         <Detail path="/detail" />
       </Router>
     </Wrapper>

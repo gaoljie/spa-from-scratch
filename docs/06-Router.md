@@ -4,7 +4,7 @@
 
 ## Create Page
 
-create src/Home.js
+create src/page/Home.js
 
 ```js
 import React from "react";
@@ -16,7 +16,7 @@ function Home() {
 export default Home;
 ```
 
-create src/Detail.js
+create src/page/Detail.js
 
 ```js
 import React from "react";
@@ -36,8 +36,8 @@ in src/App.js
 import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
-import Home from "./Home";
-import Detail from "./Detail";
+import Home from "./page/Home";
+import Detail from "./page/Detail";
 
 const Wrapper = styled.section`
   padding: 5px;

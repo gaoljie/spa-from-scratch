@@ -22,11 +22,17 @@ create .eslintrc.json file in root directory
 
 ```json
 {
+  "parser": "babel-eslint",
   "env": {
     "browser": true
   },
   "extends": ["airbnb", "prettier"],
-  "rules": { "react/jsx-filename-extension": [0] }
+  "rules": {
+    "react/jsx-filename-extension": false,
+    "react/prop-types": false,
+    "react/destructuring-assignment": false,
+    "react/button-has-type": false
+  }
 }
 ```
 
