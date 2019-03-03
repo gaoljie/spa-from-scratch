@@ -12,17 +12,17 @@ yarn add webpack webpack-cli --dev
 
 create webpack.config.js in the root directory, webpack will use ./src/index.js as an entry file to bundle up all files into ./dist folder, we use **awesome-typescript-loader** to transform code to es5 code, so browser can run the code without crashing.
 
-```
+```js
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./src/index",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: [".ts", ".tsx", ".js", ".json"]
   },
   module: {
     rules: [
@@ -51,7 +51,7 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./src/index",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
@@ -109,5 +109,5 @@ yarn add rimraf —dev
 add npm script in package.json
 
 ```
-"build": "rimraf dist && webpack --mode production --config webpack.config.js"
+"build": "yarn lint && rimraf dist && webpack --mode production --config webpack.config.js"
 ```

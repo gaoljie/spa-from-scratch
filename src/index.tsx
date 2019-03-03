@@ -1,5 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import App from "./App";
+import AppState from "./store";
 
-ReactDOM.render(<App content={"world"} />, document.getElementById("root"));
+const appState = new AppState();
+
+ReactDOM.render(
+  <App content={"world"} appState={appState} />,
+  document.getElementById("root")
+);

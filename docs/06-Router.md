@@ -6,7 +6,9 @@
 
 ## Create Page
 
-create src/Home.tsx
+`mkdir src/page`
+
+create src/page/Home.tsx
 
 ```tsx
 import * as React from "react";
@@ -21,7 +23,7 @@ class Home extends React.Component<RouteComponentProps> {
 export default Home;
 ```
 
-create src/Detail.tsx
+create src/page/Detail.tsx
 
 ```tsx
 import * as React from "react";
@@ -44,8 +46,16 @@ in src/App.tsx
 import * as React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
-import Home from "./Home";
-import Detail from "./Detail";
+import Home from "./page/Home";
+import Detail from "./page/Detail";
+import { observable } from "mobx";
+
+const appState = observable({
+  count: 0,
+  addCount() {
+    this.count++;
+  }
+});
 
 const Wrapper = styled.section`
   padding: 5px;
@@ -61,8 +71,6 @@ interface HelloProps {
   content: string;
 }
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
 export default class App extends React.Component<HelloProps, {}> {
   public render() {
     return (

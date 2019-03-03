@@ -1,26 +1,51 @@
-import * as React from "react";
-import styled from "styled-components";
-import { Router, Link } from "@reach/router";
-import Home from "./page/Home";
-import Detail from "./page/Detail";
-import { observer } from "mobx-react";
-import AppState from "./store";
+## install Mobx
 
-const Wrapper = styled.section`
-  padding: 5px;
-  background: papayawhip;
-`;
+`yarn add mobx mobx-react`
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  color: red;
-`;
+## create store
 
-interface HelloProps {
-  content: string;
-  appState: AppState;
+`mkdir src/store`
+
+create src/store/index.tsx
+
+```tsx
+import { action, observable } from "mobx";
+
+class AppState {
+  @observable public counter: number = 0;
+
+  @action public addCounter() {
+    this.counter++;
+  }
 }
 
+export default AppState;
+```
+
+change src/index.tsx
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import App from "./App";
+import AppState from "./store";
+
+const appState = new AppState();
+
+ReactDOM.render(
+  <App content={"world"} appState={appState} />,
+  document.getElementById("root")
+);
+```
+
+change src/App.tsx
+
+```tsx
+import { observer } from "mobx-react";
+import AppState from "./store";
+```
+
+```tsx
 @observer
 export default class App extends React.Component<HelloProps> {
   private addCounter = () => {
@@ -49,3 +74,4 @@ export default class App extends React.Component<HelloProps> {
     );
   }
 }
+```

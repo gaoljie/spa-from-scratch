@@ -2,8 +2,10 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015"]
   },
   "include": ["./**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

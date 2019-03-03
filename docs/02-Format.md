@@ -18,7 +18,9 @@ create tslint.json file in root directory
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rules": {
-    "interface-name": [true, "never-prefix"]
+    "interface-name": false,
+    "ordered-imports": false,
+    "member-ordering": false
   }
 }
 ```
@@ -30,10 +32,12 @@ create tsconfig.json
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015"]
   },
   "include": ["./**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
 ```
 
@@ -41,13 +45,17 @@ create tsconfig.json
 
 `yarn add pretty-quick husky --dev`
 
-and add this config to your package.json:
+add following code to npm script
+
+`"lint": "tslint -p tsconfig.json"`
+
+add this config to your package.json:
 
 ```json
 {
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && tslint -p tsconfig.json"
+      "pre-commit": "pretty-quick --staged && yarn lint"
     }
   }
 }

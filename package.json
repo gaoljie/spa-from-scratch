@@ -4,12 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production --config webpack.config.js",
+    "lint": "tslint -p tsconfig.json",
+    "build": "yarn lint && rimraf dist && webpack --mode production --config webpack.config.js",
     "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && tslint -p tsconfig.json"
+      "pre-commit": "pretty-quick --staged && yarn lint"
     }
   },
   "devDependencies": {
@@ -34,6 +35,8 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
     "styled-components": "^4.1.3"
   }
 }
