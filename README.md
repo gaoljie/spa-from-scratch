@@ -5,11 +5,20 @@ This is a guideline to build an modern SPA project using React framework step by
 We use following framework and packages:
 
 - UI Framework - React
+- Package Management - Yarn
 - Formatter - eslint, prettier, tslint(for typescript repo)
 - Bundler - Webpack
 - Style - Styled Components
 - Router - Reach Router
 - Flux - Mobx
+
+## Usage
+
+1. install node.js and yarn
+2. clone repo `git clone git@github.com:gaoljie/spa-from-scratch.git <PROJECT-NAME>`
+3. install package `cd <PROJECT-NAME> && yarn install`
+4. run project `yarn start`
+5. build project `yarn build`
 
 ## Table of Contents
 
