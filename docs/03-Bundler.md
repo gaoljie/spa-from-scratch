@@ -25,16 +25,19 @@ remember the preset ordering is from right to left, so babel will use **react** 
 
 ## webpack config
 
-create webpack.config.js in the root directory, webpack will use ./src/index.js as an entry file to bundle up all files into ./dist folder, we use babel-loader to transform es6 style and jsx style code to es5 code, so browser can run the code without crashing.
+create webpack.config.js in the root directory, webpack will use ./src/index.jsx as an entry file to bundle up all files into ./dist folder, we use babel-loader to transform es6 style and jsx style code to es5 code, so browser can run the code without crashing.
 
 ```js
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"]
   },
   module: {
     rules: [
@@ -61,10 +64,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"]
   },
   module: {
     rules: [

@@ -4,9 +4,9 @@
 
 ## Create Page
 
-create src/page/Home.js
+create src/page/Home.jsx
 
-```js
+```jsx
 import React from "react";
 
 function Home() {
@@ -16,9 +16,9 @@ function Home() {
 export default Home;
 ```
 
-create src/page/Detail.js
+create src/page/Detail.jsx
 
-```js
+```jsx
 import React from "react";
 
 function Detail() {
@@ -30,9 +30,9 @@ export default Detail;
 
 ## add Link and Router
 
-in src/App.js
+in src/App.jsx
 
-```js
+```jsx
 import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";

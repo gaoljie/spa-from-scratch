@@ -4,9 +4,9 @@
 
 ## add components
 
-change App.js
+change App.jsx
 
-```js
+```jsx
 import React from "react";
 import styled from "styled-components";
 

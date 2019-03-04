@@ -42,11 +42,11 @@ export default class Store {
 }
 ```
 
-change src/App.js
+change src/App.jsx
 
 add store
 
-```js
+```jsx
 import Store from "./store";
 
 const store = new Store();
@@ -55,9 +55,9 @@ const store = new Store();
 change <Home/> component
 `<Home path="/" store={store} />`
 
-change src/page/Home.js
+change src/page/Home.jsx
 
-```js
+```jsx
 import React from "react";
 import { observer } from "mobx-react";
 

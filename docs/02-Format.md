@@ -28,7 +28,6 @@ create .eslintrc.json file in root directory
   },
   "extends": ["airbnb", "prettier"],
   "rules": {
-    "react/jsx-filename-extension": false,
     "react/prop-types": false,
     "react/destructuring-assignment": false,
     "react/button-has-type": false

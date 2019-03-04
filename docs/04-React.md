@@ -7,9 +7,9 @@
 create src folder
 `mkdir src`
 
-create src/App.js
+create src/App.jsx
 
-```js
+```jsx
 import React from "react";
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
 export default App;
 ```
 
-create src/index.js
+create src/index.jsx
 
-```js
+```jsx
 import React from "react";
 import { render } from "react-dom";
 import App from "./App";
