@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js",
-    "build": "rimraf dist && webpack --mode production --config webpack.config.js",
+    "start": "webpack-dev-server --open --config build/webpack.dev.js",
+    "build": "rimraf dist && webpack --config webpack.prod.js",
     "deploy": "git checkout master && git pull && yarn build && gh-pages -d dist"
   },
   "husky": {
@@ -46,6 +46,7 @@
     "rimraf": "^2.6.3",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   }
 }

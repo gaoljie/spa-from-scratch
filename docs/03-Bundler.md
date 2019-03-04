@@ -1,6 +1,6 @@
 ## install webpack
 
-`yarn add webpack webpack-cli --dev`
+`yarn add webpack webpack-cli webpack-merge --dev`
 
 ## install babel
 
@@ -25,13 +25,15 @@ remember the preset ordering is from right to left, so babel will use **react** 
 
 ## webpack config
 
-create webpack.config.js in the root directory, webpack will use ./src/index.jsx as an entry file to bundle up all files into ./dist folder, we use babel-loader to transform es6 style and jsx style code to es5 code, so browser can run the code without crashing.
+create build folder `mkdir build`
+
+create webpack.common.js under build folder, webpack will use ./src/index.jsx as an entry file to bundle up all files into ./dist folder, we use babel-loader to transform es6 style and jsx style code to es5 code, so browser can run the code without crashing.
 
 ```js
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: path.join(__dirname, "../src/index.jsx"),
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
@@ -53,6 +55,31 @@ module.exports = {
 };
 ```
 
+create webpack.dev.js for development environment
+
+```js
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+
+module.exports = merge(common, {
+  mode: "development",
+  devtool: "inline-source-map"
+});
+```
+
+create webpack.prod.js for production environment
+
+```js
+const path = require("path");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+
+module.exports = merge(common, {
+  mode: "production",
+  devtool: "source-map"
+});
+```
+
 ## install html-webpack-plugin
 
 `yarn add html-webpack-plugin --dev`
@@ -64,7 +91,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: path.join(__dirname, "../src/index.jsx"),
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
@@ -85,13 +112,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src/index.html")
+      template: path.join(__dirname, "../src/index.html")
     })
   ]
 };
 ```
-
-to webpack.config.js file.
 
 you can specify an html file as the template, which we will create next chapter
 
@@ -105,7 +130,7 @@ add the following code to package.json
 
 ```js
 "scripts": {
-  "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js"
+  "start": "webpack-dev-server --open --config build/webpack.dev.js",
 },
 ```
 
@@ -117,4 +142,4 @@ first install rimraf, it is an alternative to the `rm -rf` shell command, it can
 
 add npm script in package.json
 
-`"build": "rimraf dist && webpack --mode production --config webpack.config.js"`
+`"build": "rimraf dist && webpack --config build/webpack.prod.js"`
