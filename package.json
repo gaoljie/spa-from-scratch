@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --open --config build/webpack.dev.js",
-    "build": "rimraf dist && webpack --config webpack.prod.js",
+    "build": "rimraf dist && webpack --config build/webpack.prod.js",
     "deploy": "git checkout master && git pull && yarn build && gh-pages -d dist"
   },
   "husky": {
