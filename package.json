@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js",
     "build": "rimraf dist && webpack --mode production --config webpack.config.js",
-    "deploy": "git checkout master && yarn build && gh-pages -d dist"
+    "deploy": "git checkout master && git pull && yarn build && gh-pages -d dist"
   },
   "husky": {
     "hooks": {

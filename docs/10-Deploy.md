@@ -6,7 +6,7 @@
 
 add following line to npm script
 
-`"deploy": "git checkout master && yarn build && gh-pages -d dist"`
+`"deploy": "git checkout master && git pull && yarn build && gh-pages -d dist"`
 
 now you can go to your github address
 
