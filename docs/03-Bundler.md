@@ -143,3 +143,13 @@ first install rimraf, it is an alternative to the `rm -rf` shell command, it can
 add npm script in package.json
 
 `"build": "rimraf dist && webpack --config build/webpack.prod.js"`
+
+## install nodemon
+
+`yarn add nodemon --dev`
+
+change npm script
+
+```js
+"start": "nodemon --watch build --exec \"webpack-dev-server --open --config build/webpack.dev.js\"",
+```
