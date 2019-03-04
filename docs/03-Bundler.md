@@ -36,7 +36,7 @@ module.exports = {
   entry: path.join(__dirname, "../src/index.jsx"),
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].[hash].js"
+    filename: "[name].[contenthash:6].js"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"]
@@ -76,7 +76,18 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "production",
-  devtool: "source-map"
+  devtool: "source-map",
+  optimization: {
+    splitChunks: {
+      vendor: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  }
 });
 ```
 
@@ -94,7 +105,7 @@ module.exports = {
   entry: path.join(__dirname, "../src/index.jsx"),
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].[hash].js"
+    filename: "[name].[contenthash:6].js"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"]

@@ -5,7 +5,7 @@ module.exports = {
   entry: path.join(__dirname, "../src/index.jsx"),
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].[hash].js"
+    filename: "[name].[contenthash:6].js"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"]
