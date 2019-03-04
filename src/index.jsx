@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Sentry from "@sentry/browser";
+import * as Sentry from "@sentry/browser";
 import App from "./App";
 
 if (process.env.NODE_ENV === "production") {
