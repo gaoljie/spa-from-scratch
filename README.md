@@ -35,3 +35,9 @@ We use following framework and packages:
 [06 - Router](/docs/06-Router.md#readme)
 
 [07 - Mobx](/docs/07-Router.md#readme)
+
+[08 - Test](/docs/08-Test.md#readme)
+
+[09 - Monitor](/docs/09-Monitor.md#readme)
+
+[10 - Deploy](/docs/10-Deploy.md#readme)
