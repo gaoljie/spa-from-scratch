@@ -26,7 +26,6 @@ create .gitignore
 ```
 .DS_Store
 /*.log
-.idea/
 node_modules/
 yarn.lock
 dist/

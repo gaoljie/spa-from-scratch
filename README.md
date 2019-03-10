@@ -4,13 +4,15 @@ This is a guideline to build an modern SPA project using React framework step by
 
 We use following framework and packages:
 
-- UI Framework - React
-- Package Management - Yarn
-- Formatter - eslint, prettier, tslint(for typescript repo)
-- Bundler - Webpack
-- Style - Styled Components
-- Router - Reach Router
-- Flux - Mobx
+- UI Framework - [React](https://reactjs.org/)
+- Package Management - [Yarn](https://yarnpkg.com/)
+- Formatter - [Eslint](https://eslint.org/), [Prettier](https://github.com/prettier/prettier)
+- Compiler - [Babel](https://babeljs.io/)
+- Bundler - [Webpack](https://webpack.js.org/)
+- Style - [Styled Components](https://www.styled-components.com/)
+- Router - [Reach Router](https://github.com/reach/router)
+- Flux - [Mobx](https://mobx.js.org/index.html)
+- Test - [Jest](https://jestjs.io/)
 
 ## Usage
 
