@@ -16,11 +16,10 @@ We use following framework and packages:
 
 ## Usage
 
-1. install node.js and yarn
-2. clone repo `git clone git@github.com:gaoljie/spa-from-scratch.git <PROJECT-NAME>`
-3. install package `cd <PROJECT-NAME> && yarn install`
-4. run project `yarn start`
-5. build project `yarn build`
+1. clone repo `git clone git@github.com:gaoljie/spa-from-scratch.git <PROJECT-NAME>`
+2. install package `cd <PROJECT-NAME> && yarn install`
+3. run project `yarn start`
+4. build project `yarn build`
 
 ## Table of Contents
 
